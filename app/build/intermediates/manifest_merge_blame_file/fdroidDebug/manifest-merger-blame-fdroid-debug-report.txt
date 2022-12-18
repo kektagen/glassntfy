@@ -1,0 +1,598 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.heckel.ntfy"
+4    android:versionCode="32"
+5    android:versionName="1.16.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml
+10
+11    <!-- Permissions -->
+12    <uses-permission android:name="android.permission.BLUETOOTH" />
+12-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:6:5-68
+12-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:6:22-65
+13    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+13-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:7:5-76
+13-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:7:22-73
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:8:5-66
+14-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:8:22-64
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- For instant delivery foregrounds service -->
+15-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:9:5-76
+15-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:9:22-74
+16    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- To keep foreground service awake; soon not needed anymore -->
+16-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:10:5-67
+16-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:10:22-65
+17    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- To restart service on reboot -->
+17-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:11:5-80
+17-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:11:22-78
+18    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Incoming notifications should be able to vibrate the phone -->
+18-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:12:5-65
+18-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:12:22-63
+19    <uses-permission
+19-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:13:5-107
+20        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+20-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:13:22-78
+21        android:maxSdkVersion="28" /> <!-- Only required on SDK <= 28 -->
+21-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:13:79-105
+22    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- To reschedule the websocket retry -->
+22-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:14:5-78
+22-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:14:22-76
+23    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- As of Android 13, we need to ask for permission to post notifications -->
+23-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:15:5-76
+23-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:15:22-74
+24
+25
+26    <!--
+27        Permission REQUEST_INSTALL_PACKAGES (F-Droid only!):
+28          - Permission is used to install .apk files that were received as attachments
+29          - Google rejected the permission for ntfy, so this permission is STRIPPED OUT by the build process
+30            for the Google Play variant of the app.
+31    -->
+32    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+32-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:23:5-82
+32-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:23:22-80
+33    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+33-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:26:5-79
+33-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:26:22-76
+34
+35    <permission
+35-->[androidx.core:core:1.9.0] /home/kektagen/.gradle/caches/transforms-3/a99b45a9d8f2b88111efda9490f727d9/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+36        android:name="io.heckel.ntfy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+36-->[androidx.core:core:1.9.0] /home/kektagen/.gradle/caches/transforms-3/a99b45a9d8f2b88111efda9490f727d9/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+37        android:protectionLevel="signature" />
+37-->[androidx.core:core:1.9.0] /home/kektagen/.gradle/caches/transforms-3/a99b45a9d8f2b88111efda9490f727d9/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+38
+39    <uses-permission android:name="io.heckel.ntfy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+39-->[androidx.core:core:1.9.0] /home/kektagen/.gradle/caches/transforms-3/a99b45a9d8f2b88111efda9490f727d9/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+39-->[androidx.core:core:1.9.0] /home/kektagen/.gradle/caches/transforms-3/a99b45a9d8f2b88111efda9490f727d9/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+40
+41    <application
+41-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:25:5-180:19
+42        android:name="io.heckel.ntfy.app.Application"
+42-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:26:13-44
+43        android:allowBackup="true"
+43-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:27:13-39
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.9.0] /home/kektagen/.gradle/caches/transforms-3/a99b45a9d8f2b88111efda9490f727d9/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+45        android:debuggable="true"
+46        android:icon="@mipmap/ic_launcher"
+46-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:28:13-47
+47        android:label="@string/app_name"
+47-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:29:13-45
+48        android:networkSecurityConfig="@xml/network_security_config"
+48-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:33:13-73
+49        android:roundIcon="@mipmap/ic_launcher"
+49-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:30:13-52
+50        android:supportsRtl="true"
+50-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:31:13-39
+51        android:testOnly="true"
+52        android:theme="@style/AppTheme"
+52-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:32:13-44
+53        android:usesCleartextTraffic="true" >
+53-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:34:13-48
+54
+55        <!-- Main activity -->
+56        <activity
+56-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:37:9-45:20
+57            android:name="io.heckel.ntfy.ui.MainActivity"
+57-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:38:17-48
+58            android:exported="true"
+58-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:40:13-36
+59            android:label="@string/app_name" >
+59-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:39:17-49
+60            <intent-filter>
+60-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:41:13-44:29
+61                <action android:name="android.intent.action.MAIN" />
+61-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:42:17-68
+61-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:42:25-66
+62
+63                <category android:name="android.intent.category.LAUNCHER" />
+63-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:43:17-76
+63-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:43:27-74
+64            </intent-filter>
+65        </activity>
+66
+67        <!-- Detail activity -->
+68        <activity
+68-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:48:9-63:20
+69            android:name="io.heckel.ntfy.ui.DetailActivity"
+69-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:49:17-50
+70            android:exported="true"
+70-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:51:17-40
+71            android:parentActivityName="io.heckel.ntfy.ui.MainActivity" >
+71-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:50:17-62
+72            <meta-data
+72-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:52:13-54:55
+73                android:name="android.support.PARENT_ACTIVITY"
+73-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:53:21-67
+74                android:value=".ui.MainActivity" />
+74-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:54:21-53
+75
+76            <!-- Open ntfy:// links with the app -->
+77            <intent-filter android:label="@string/app_name" >
+77-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:57:13-62:29
+77-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:57:28-60
+78                <action android:name="android.intent.action.VIEW" />
+78-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:58:17-69
+78-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:58:25-66
+79
+80                <category android:name="android.intent.category.DEFAULT" />
+80-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:59:17-76
+80-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:59:27-73
+81                <category android:name="android.intent.category.BROWSABLE" />
+81-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:60:17-78
+81-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:60:27-75
+82
+83                <data android:scheme="ntfy" />
+83-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:61:17-47
+83-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:61:23-44
+84            </intent-filter>
+85        </activity>
+86
+87        <!-- Settings activity -->
+88        <activity
+88-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:66:9-72:20
+89            android:name="io.heckel.ntfy.ui.SettingsActivity"
+89-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:67:17-52
+90            android:parentActivityName="io.heckel.ntfy.ui.MainActivity" >
+90-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:68:17-62
+91            <meta-data
+91-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:52:13-54:55
+92                android:name="android.support.PARENT_ACTIVITY"
+92-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:53:21-67
+93                android:value=".ui.MainActivity" />
+93-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:54:21-53
+94        </activity>
+95
+96        <!-- Detail settings activity -->
+97        <activity
+97-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:75:9-78:20
+98            android:name="io.heckel.ntfy.ui.DetailSettingsActivity"
+98-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:76:17-58
+99            android:parentActivityName="io.heckel.ntfy.ui.DetailActivity" >
+99-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:77:17-64
+100        </activity>
+101
+102        <!-- Share file activity, incoming files/shares -->
+103        <activity
+103-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:81:9-91:20
+104            android:name="io.heckel.ntfy.ui.ShareActivity"
+104-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:81:19-51
+105            android:exported="true" >
+105-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:81:52-75
+106            <intent-filter>
+106-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:82:13-90:29
+107                <action android:name="android.intent.action.SEND" />
+107-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:83:17-69
+107-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:83:25-66
+108
+109                <category android:name="android.intent.category.DEFAULT" />
+109-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:59:17-76
+109-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:59:27-73
+110
+111                <data android:mimeType="image/*" />
+111-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:61:17-47
+111-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:85:23-49
+112                <data android:mimeType="text/*" />
+112-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:61:17-47
+112-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:85:23-49
+113                <data android:mimeType="audio/*" />
+113-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:61:17-47
+113-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:85:23-49
+114                <data android:mimeType="video/*" />
+114-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:61:17-47
+114-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:85:23-49
+115                <data android:mimeType="application/*" />
+115-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:61:17-47
+115-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:85:23-49
+116            </intent-filter>
+117        </activity>
+118
+119        <!-- Hack: Activity used for "view" action button with "clear=true" (to be able to cancel notifications and show a URL) -->
+120        <activity
+120-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:94:9-97:20
+121            android:name="io.heckel.ntfy.msg.NotificationService$ViewActionWithClearActivity"
+121-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:95:17-84
+122            android:exported="false" >
+122-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:96:17-41
+123        </activity>
+124
+125        <!-- Subscriber foreground service for hosts other than ntfy.sh -->
+126        <service android:name="io.heckel.ntfy.service.SubscriberService" />
+126-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:100:9-61
+126-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:100:18-59
+127
+128        <!-- Subscriber service restart on reboot -->
+129        <receiver
+129-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:103:9-110:20
+130            android:name="io.heckel.ntfy.service.SubscriberService$BootStartReceiver"
+130-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:104:17-76
+131            android:enabled="true"
+131-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:105:17-39
+132            android:exported="true" >
+132-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:106:13-36
+133            <intent-filter>
+133-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:107:13-109:29
+134                <action android:name="android.intent.action.BOOT_COMPLETED" />
+134-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:108:17-78
+134-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:108:25-76
+135            </intent-filter>
+136        </receiver>
+137
+138        <!-- Subscriber service restart on destruction -->
+139        <receiver
+139-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:113:9-116:43
+140            android:name="io.heckel.ntfy.service.SubscriberService$AutoRestartReceiver"
+140-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:114:17-78
+141            android:enabled="true"
+141-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:115:17-39
+142            android:exported="false" />
+142-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:116:17-41
+143
+144        <!-- Broadcast receiver to send messages via intents -->
+145        <receiver
+145-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:119:9-126:20
+146            android:name="io.heckel.ntfy.msg.BroadcastService$BroadcastReceiver"
+146-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:120:17-71
+147            android:enabled="true"
+147-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:121:17-39
+148            android:exported="true" >
+148-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:122:17-40
+149            <intent-filter>
+149-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:123:13-125:29
+150                <action android:name="io.heckel.ntfy.SEND_MESSAGE" />
+150-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:124:17-69
+150-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:124:25-67
+151            </intent-filter>
+152        </receiver>
+153
+154        <!-- Broadcast receiver for UnifiedPush; must match https://github.com/UnifiedPush/UP-spec/blob/main/specifications.md -->
+155        <receiver
+155-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:129:9-138:20
+156            android:name="io.heckel.ntfy.up.BroadcastReceiver"
+156-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:130:17-53
+157            android:enabled="true"
+157-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:131:17-39
+158            android:exported="true" >
+158-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:132:17-40
+159            <intent-filter>
+159-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:133:13-137:29
+160                <action android:name="org.unifiedpush.android.distributor.REGISTER" />
+160-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:134:17-86
+160-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:134:25-84
+161                <action android:name="org.unifiedpush.android.distributor.UNREGISTER" />
+161-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:135:17-88
+161-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:135:25-86
+162                <action android:name="org.unifiedpush.android.distributor.feature.BYTES_MESSAGE" />
+162-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:136:17-99
+162-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:136:25-97
+163            </intent-filter>
+164        </receiver>
+165
+166        <!-- Broadcast receiver for the "Download"/"Cancel" attachment action in the notification popup -->
+167        <receiver
+167-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:141:9-145:20
+168            android:name="io.heckel.ntfy.msg.NotificationService$UserActionBroadcastReceiver"
+168-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:142:17-84
+169            android:enabled="true"
+169-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:143:17-39
+170            android:exported="false" >
+170-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:144:17-41
+171        </receiver>
+172
+173        <!-- Broadcast receiver for when the notification is swiped away (currently only to cancel the insistent sound) -->
+174        <receiver
+174-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:148:9-152:20
+175            android:name="io.heckel.ntfy.msg.NotificationService$DeleteBroadcastReceiver"
+175-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:149:17-80
+176            android:enabled="true"
+176-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:150:17-39
+177            android:exported="false" >
+177-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:151:17-41
+178        </receiver>
+179
+180        <!-- Firebase messaging (note that this is empty in the F-Droid flavor) -->
+181        <service
+181-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:155:9-161:19
+182            android:name="io.heckel.ntfy.firebase.FirebaseService"
+182-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:156:17-57
+183            android:exported="false" >
+183-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:157:17-41
+184            <intent-filter>
+184-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:158:13-160:29
+185                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+185-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:159:17-77
+185-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:159:25-75
+186            </intent-filter>
+187        </service>
+188
+189        <meta-data
+189-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:162:9-164:40
+190            android:name="firebase_analytics_collection_enabled"
+190-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:163:17-69
+191            android:value="false" />
+191-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:164:17-38
+192        <meta-data
+192-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:165:9-167:63
+193            android:name="com.google.firebase.messaging.default_notification_icon"
+193-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:166:17-87
+194            android:resource="@drawable/ic_notification" />
+194-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:167:17-61
+195
+196        <!--
+197             FileProvider required for older Android versions (<= P), to allow passing the file URI in the open intent.
+198             Avoids "exposed beyond app through Intent.getData" exception, see see https://stackoverflow.com/a/57288352/1440785
+199        -->
+200        <provider
+201            android:name="androidx.core.content.FileProvider"
+201-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:172:17-66
+202            android:authorities="io.heckel.ntfy.provider"
+202-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:173:17-64
+203            android:exported="false"
+203-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:174:17-41
+204            android:grantUriPermissions="true" >
+204-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:175:17-51
+205            <meta-data
+205-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:176:13-178:57
+206                android:name="android.support.FILE_PROVIDER_PATHS"
+206-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:177:21-71
+207                android:resource="@xml/file_paths" />
+207-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:178:21-55
+208        </provider>
+209
+210        <uses-library
+210-->[androidx.window:window:1.0.0] /home/kektagen/.gradle/caches/transforms-3/3b6faceeab511d99284fcc8e86746b41/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+211            android:name="androidx.window.extensions"
+211-->[androidx.window:window:1.0.0] /home/kektagen/.gradle/caches/transforms-3/3b6faceeab511d99284fcc8e86746b41/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+212            android:required="false" />
+212-->[androidx.window:window:1.0.0] /home/kektagen/.gradle/caches/transforms-3/3b6faceeab511d99284fcc8e86746b41/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+213        <uses-library
+213-->[androidx.window:window:1.0.0] /home/kektagen/.gradle/caches/transforms-3/3b6faceeab511d99284fcc8e86746b41/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+214            android:name="androidx.window.sidecar"
+214-->[androidx.window:window:1.0.0] /home/kektagen/.gradle/caches/transforms-3/3b6faceeab511d99284fcc8e86746b41/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+215            android:required="false" />
+215-->[androidx.window:window:1.0.0] /home/kektagen/.gradle/caches/transforms-3/3b6faceeab511d99284fcc8e86746b41/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+216
+217        <provider
+217-->[androidx.emoji2:emoji2:1.2.0] /home/kektagen/.gradle/caches/transforms-3/5906620465812a39b2500500453065bc/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+218            android:name="androidx.startup.InitializationProvider"
+218-->[androidx.emoji2:emoji2:1.2.0] /home/kektagen/.gradle/caches/transforms-3/5906620465812a39b2500500453065bc/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+219            android:authorities="io.heckel.ntfy.androidx-startup"
+219-->[androidx.emoji2:emoji2:1.2.0] /home/kektagen/.gradle/caches/transforms-3/5906620465812a39b2500500453065bc/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+220            android:exported="false" >
+220-->[androidx.emoji2:emoji2:1.2.0] /home/kektagen/.gradle/caches/transforms-3/5906620465812a39b2500500453065bc/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+221            <meta-data
+221-->[androidx.emoji2:emoji2:1.2.0] /home/kektagen/.gradle/caches/transforms-3/5906620465812a39b2500500453065bc/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+222                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+222-->[androidx.emoji2:emoji2:1.2.0] /home/kektagen/.gradle/caches/transforms-3/5906620465812a39b2500500453065bc/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+223                android:value="androidx.startup" />
+223-->[androidx.emoji2:emoji2:1.2.0] /home/kektagen/.gradle/caches/transforms-3/5906620465812a39b2500500453065bc/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+224            <meta-data
+224-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:36:13-38:52
+225                android:name="androidx.work.WorkManagerInitializer"
+225-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:37:17-68
+226                android:value="androidx.startup" />
+226-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:38:17-49
+227            <meta-data
+227-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/kektagen/.gradle/caches/transforms-3/de037d0d5ecd6a0a843f19554343cf5a/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+228                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+228-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/kektagen/.gradle/caches/transforms-3/de037d0d5ecd6a0a843f19554343cf5a/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+229                android:value="androidx.startup" />
+229-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/kektagen/.gradle/caches/transforms-3/de037d0d5ecd6a0a843f19554343cf5a/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+230        </provider>
+231
+232        <service
+232-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:41:9-46:35
+233            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+233-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:42:13-88
+234            android:directBootAware="false"
+234-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:43:13-44
+235            android:enabled="@bool/enable_system_alarm_service_default"
+235-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:44:13-72
+236            android:exported="false" />
+236-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:45:13-37
+237        <service
+237-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:47:9-53:35
+238            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+238-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:48:13-84
+239            android:directBootAware="false"
+239-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:49:13-44
+240            android:enabled="@bool/enable_system_job_service_default"
+240-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:50:13-70
+241            android:exported="true"
+241-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:51:13-36
+242            android:permission="android.permission.BIND_JOB_SERVICE" />
+242-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:52:13-69
+243        <service
+243-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:54:9-59:35
+244            android:name="androidx.work.impl.foreground.SystemForegroundService"
+244-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:55:13-81
+245            android:directBootAware="false"
+245-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:56:13-44
+246            android:enabled="@bool/enable_system_foreground_service_default"
+246-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:57:13-77
+247            android:exported="false" />
+247-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:58:13-37
+248
+249        <receiver
+249-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:61:9-66:35
+250            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+250-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:62:13-88
+251            android:directBootAware="false"
+251-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:63:13-44
+252            android:enabled="true"
+252-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:64:13-35
+253            android:exported="false" />
+253-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:65:13-37
+254        <receiver
+254-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:67:9-77:20
+255            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+255-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:68:13-106
+256            android:directBootAware="false"
+256-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:69:13-44
+257            android:enabled="false"
+257-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:70:13-36
+258            android:exported="false" >
+258-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:71:13-37
+259            <intent-filter>
+259-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:73:13-76:29
+260                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+260-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:74:17-87
+260-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:74:25-84
+261                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+261-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:75:17-90
+261-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:75:25-87
+262            </intent-filter>
+263        </receiver>
+264        <receiver
+264-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:78:9-88:20
+265            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+265-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:79:13-104
+266            android:directBootAware="false"
+266-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:80:13-44
+267            android:enabled="false"
+267-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:81:13-36
+268            android:exported="false" >
+268-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:82:13-37
+269            <intent-filter>
+269-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:84:13-87:29
+270                <action android:name="android.intent.action.BATTERY_OKAY" />
+270-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:85:17-77
+270-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:85:25-74
+271                <action android:name="android.intent.action.BATTERY_LOW" />
+271-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:86:17-76
+271-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:86:25-73
+272            </intent-filter>
+273        </receiver>
+274        <receiver
+274-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:89:9-99:20
+275            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+275-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:90:13-104
+276            android:directBootAware="false"
+276-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:91:13-44
+277            android:enabled="false"
+277-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:92:13-36
+278            android:exported="false" >
+278-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:93:13-37
+279            <intent-filter>
+279-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:95:13-98:29
+280                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+280-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:96:17-83
+280-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:96:25-80
+281                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+281-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:97:17-82
+281-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:97:25-79
+282            </intent-filter>
+283        </receiver>
+284        <receiver
+284-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:100:9-109:20
+285            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+285-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:101:13-103
+286            android:directBootAware="false"
+286-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:102:13-44
+287            android:enabled="false"
+287-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:103:13-36
+288            android:exported="false" >
+288-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:104:13-37
+289            <intent-filter>
+289-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:106:13-108:29
+290                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+290-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:107:17-79
+290-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:107:25-76
+291            </intent-filter>
+292        </receiver>
+293        <receiver
+293-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:110:9-121:20
+294            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+294-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:111:13-88
+295            android:directBootAware="false"
+295-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:112:13-44
+296            android:enabled="false"
+296-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:113:13-36
+297            android:exported="false" >
+297-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:114:13-37
+298            <intent-filter>
+298-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:116:13-120:29
+299                <action android:name="android.intent.action.BOOT_COMPLETED" />
+299-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:108:17-78
+299-->/home/kektagen/ntfy-android/app/src/main/AndroidManifest.xml:108:25-76
+300                <action android:name="android.intent.action.TIME_SET" />
+300-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:118:17-73
+300-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:118:25-70
+301                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+301-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:119:17-81
+301-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:119:25-78
+302            </intent-filter>
+303        </receiver>
+304        <receiver
+304-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:122:9-131:20
+305            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+305-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:123:13-99
+306            android:directBootAware="false"
+306-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:124:13-44
+307            android:enabled="@bool/enable_system_alarm_service_default"
+307-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:125:13-72
+308            android:exported="false" >
+308-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:126:13-37
+309            <intent-filter>
+309-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:128:13-130:29
+310                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+310-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:129:17-98
+310-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:129:25-95
+311            </intent-filter>
+312        </receiver>
+313        <receiver
+313-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:132:9-142:20
+314            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+314-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:133:13-78
+315            android:directBootAware="false"
+315-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:134:13-44
+316            android:enabled="true"
+316-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:135:13-35
+317            android:exported="true"
+317-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:136:13-36
+318            android:permission="android.permission.DUMP" >
+318-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:137:13-57
+319            <intent-filter>
+319-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:139:13-141:29
+320                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+320-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:140:17-88
+320-->[androidx.work:work-runtime:2.7.1] /home/kektagen/.gradle/caches/transforms-3/c85a53a8d859db7ee890561b44c1f18e/transformed/work-runtime-2.7.1/AndroidManifest.xml:140:25-85
+321            </intent-filter>
+322        </receiver>
+323
+324        <service
+324-->[androidx.room:room-runtime:2.4.3] /home/kektagen/.gradle/caches/transforms-3/d5e1ba10b3f8bf831b5f1f0e0f5c18e2/transformed/room-runtime-2.4.3/AndroidManifest.xml:25:9-28:40
+325            android:name="androidx.room.MultiInstanceInvalidationService"
+325-->[androidx.room:room-runtime:2.4.3] /home/kektagen/.gradle/caches/transforms-3/d5e1ba10b3f8bf831b5f1f0e0f5c18e2/transformed/room-runtime-2.4.3/AndroidManifest.xml:26:13-74
+326            android:directBootAware="true"
+326-->[androidx.room:room-runtime:2.4.3] /home/kektagen/.gradle/caches/transforms-3/d5e1ba10b3f8bf831b5f1f0e0f5c18e2/transformed/room-runtime-2.4.3/AndroidManifest.xml:27:13-43
+327            android:exported="false" />
+327-->[androidx.room:room-runtime:2.4.3] /home/kektagen/.gradle/caches/transforms-3/d5e1ba10b3f8bf831b5f1f0e0f5c18e2/transformed/room-runtime-2.4.3/AndroidManifest.xml:28:13-37
+328    </application>
+329
+330</manifest>

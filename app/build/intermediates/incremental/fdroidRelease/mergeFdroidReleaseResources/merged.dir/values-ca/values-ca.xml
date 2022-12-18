@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d notificació nova</item>
+    <item quantity="other">%d notificacions noves</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navega fins a la pàgina d\'inici"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navega cap amunt"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Més opcions"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Fet"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Mostra-ho tot"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Selecciona una aplicació"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DESACTIVA"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ACTIVA"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Supr"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Retorn"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funció+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Maj+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Espai"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menú+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Cerca…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Esborra la consulta"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Consulta de cerca"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Cerca"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Envia la consulta"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Cerca per veu"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Comparteix amb"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Comparteix amb <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Replega"</string>
+    <string name="bottomsheet_action_expand_halfway">Desplega fins a la meitat</string>
+    <string name="channel_notifications_default_name">Notificacions (prioritat defecte)</string>
+    <string name="channel_notifications_high_name">Notificacions (alta prioritat)</string>
+    <string name="channel_notifications_low_name">Notificacions (prioritat min)</string>
+    <string name="channel_notifications_max_name">Notificacions (prioritat màx)</string>
+    <string name="channel_notifications_min_name">Notificacions (prioritat min)</string>
+    <string name="channel_subscriber_notification_instant_text">Subscrit per entrega instantània de temes</string>
+    <string name="channel_subscriber_notification_instant_text_five">Subscrit per cinc entregues instantànies de temes</string>
+    <string name="channel_subscriber_notification_instant_text_four">Subscrit per quatre entregues instantànies de temes</string>
+    <string name="channel_subscriber_notification_instant_text_more">Subscrit per %1$d entregues instantànies de temes</string>
+    <string name="channel_subscriber_notification_instant_text_one">Subscrit per entrega instantània d\'un tema</string>
+    <string name="channel_subscriber_notification_instant_text_six">Subscrit per sis entregues instantànies de temes</string>
+    <string name="channel_subscriber_notification_instant_text_three">Subscrit per tres entregues instantànies de temes</string>
+    <string name="channel_subscriber_notification_instant_text_two">Subscrit per dues entregues instantànies de temes</string>
+    <string name="channel_subscriber_notification_noinstant_text">Subscrit als temes</string>
+    <string name="channel_subscriber_notification_noinstant_text_five">Subscrit a cinc temes</string>
+    <string name="channel_subscriber_notification_noinstant_text_four">Subscrit a quatre temes</string>
+    <string name="channel_subscriber_notification_noinstant_text_more">Subscrit a %1$d temes</string>
+    <string name="channel_subscriber_notification_noinstant_text_one">Subscrit a un tema</string>
+    <string name="channel_subscriber_notification_noinstant_text_six">Subscrit a sis temes</string>
+    <string name="channel_subscriber_notification_noinstant_text_three">Subscrit a tres temes</string>
+    <string name="channel_subscriber_notification_noinstant_text_two">Subscrit a dos temes</string>
+    <string name="channel_subscriber_notification_title">Escoltant notificacions entrants</string>
+    <string name="channel_subscriber_service_name">Servei Subscripció</string>
+    <string name="character_counter_content_description">Caràcters introduïts: %1$d de %2$d</string>
+    <string name="character_counter_overflowed_content_description">S\'ha superat el límit de caràcters (%1$d de %2$d)</string>
+    <string name="clear_text_end_icon_content_description">Esborra el text</string>
+    <string msgid="6083905920877235314" name="copy">"Copia"</string>
+    <string name="error_icon_content_description">Error</string>
+    <string msgid="2427401033573778270" name="expand_button_title">"Opcions avançades"</string>
+    <string name="exposed_dropdown_menu_content_description">Mostra el menú desplegable</string>
+    <string name="icon_content_description">Icona del quadre de diàleg</string>
+    <string name="item_view_role_description">Tabulador</string>
+    <string name="main_action_bar_title">Temes subscrits</string>
+    <string name="main_action_mode_delete_dialog_cancel">Cancel·lar</string>
+    <string name="main_action_mode_delete_dialog_message">Donar-se de baixa del tema(es) seleccionat(s) permanentment i eliminar totes les notificacions\?</string>
+    <string name="main_action_mode_delete_dialog_permanently_delete">Eliminat permanentment</string>
+    <string name="main_action_mode_menu_unsubscribe">Donar-se de baixa</string>
+    <string name="main_item_status_reconnecting">reconnectant…</string>
+    <string name="main_item_status_text_not_one">%1$d notificacions</string>
+    <string name="main_item_status_text_one">%1$d notificació</string>
+    <string name="main_menu_docs_title">Llegir la documentació</string>
+    <string name="main_menu_donate_title">Donar 💸</string>
+    <string name="main_menu_notifications_disabled_forever">Notificacions silenciades</string>
+    <string name="main_menu_notifications_disabled_until">Notificacions silenciades fins: %1$s</string>
+    <string name="main_menu_notifications_enabled">Notificacions activades</string>
+    <string name="main_menu_rate_title">Valora la aplicació ⭐</string>
+    <string name="main_menu_report_bug_title">Reportar un problema</string>
+    <string name="main_menu_settings_title">Ajustos</string>
+    <string name="material_clock_toggle_content_description">Selecciona a. m. o p. m.</string>
+    <string name="material_hour_selection">Seleccioneu l\'hora</string>
+    <string name="material_hour_suffix">%1$s en punt</string>
+    <string name="material_minute_selection">Selecciona els minuts</string>
+    <string name="material_minute_suffix">%1$s minuts</string>
+    <string name="material_timepicker_am">a. m.</string>
+    <string name="material_timepicker_clock_mode_description">Canvia al mode de rellotge per introduir l\'hora.</string>
+    <string name="material_timepicker_hour">Hora</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_pm">p. m.</string>
+    <string name="material_timepicker_select_time">Selecció de l\'hora</string>
+    <string name="material_timepicker_text_input_mode_description">Canvia al mode d\'introducció de text per introduir l\'hora.</string>
+    <string name="mtrl_badge_numberless_content_description">Notificació nova</string>
+    <string name="mtrl_chip_close_icon_content_description">Suprimeix %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Més de %1$d notificacions noves</string>
+    <string name="mtrl_picker_a11y_next_month">Canvia al mes següent</string>
+    <string name="mtrl_picker_a11y_prev_month">Canvia al mes anterior</string>
+    <string name="mtrl_picker_announce_current_selection">Selecció actual: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Selecciona una data</string>
+    <string name="mtrl_picker_date_header_unselected">Data seleccionada</string>
+    <string name="mtrl_picker_day_of_week_column_header">Columna de dies: %1$s</string>
+    <string name="mtrl_picker_invalid_format">El format no és vàlid.</string>
+    <string name="mtrl_picker_invalid_format_example">Exemple: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Utilitza: %1$s</string>
+    <string name="mtrl_picker_invalid_range">L\'interval no és vàlid.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Canvia a l\'any %1$s</string>
+    <string name="mtrl_picker_out_of_range">La data està fora de l\'interval: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data d\'inici - %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s - data de finalització</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">Selecciona un interval</string>
+    <string name="mtrl_picker_range_header_unselected">Data d\'inici - data de finalització</string>
+    <string name="mtrl_picker_save">Desa</string>
+    <string name="mtrl_picker_text_input_date_hint">Data</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data de finalització</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data d\'inici</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Canvia al mode d\'introducció de dades del calendari</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Toca per canviar a la selecció del dia</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Canvia al mode d\'introducció de text</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Toca per canviar a la selecció de l\'any</string>
+    <string msgid="6573031135582639649" name="not_set">"No definit"</string>
+    <string name="password_toggle_content_description">Mostra la contrasenya</string>
+    <string msgid="6685851473431805375" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" s\'ha copiat al porta-retalls"</string>
+    <string name="refresh_message_error">No es poden actualitzar %1$d subscripciones
+\n
+\n%2$s</string>
+    <string name="refresh_message_error_one">No s\'ha pogut actualitzar la subscripció: %1$s</string>
+    <string name="refresh_message_no_results">Tot està actualitzat</string>
+    <string name="refresh_message_result">%1$d notificacions rebudes</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Cerca"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="9167775378838880170" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string msgid="3140233346420563315" name="v7_preference_off">"DESACTIVAT"</string>
+    <string msgid="89551595707643515" name="v7_preference_on">"ACTIVAT"</string>
+</resources>

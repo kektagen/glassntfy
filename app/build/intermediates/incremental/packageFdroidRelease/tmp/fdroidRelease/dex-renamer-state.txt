@@ -1,0 +1,4 @@
+#Sun Dec 18 11:16:36 MST 2022
+base.0=/home/kektagen/ntfy-android/app/build/intermediates/dex/fdroidRelease/minifyFdroidReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

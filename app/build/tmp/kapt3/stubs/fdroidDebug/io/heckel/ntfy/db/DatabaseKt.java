@@ -1,0 +1,15 @@
+package io.heckel.ntfy.db;
+
+import java.lang.System;
+
+@kotlin.Metadata(mv = {1, 6, 0}, k = 2, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\b\n\u0002\b\b\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0007\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\b\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\u00a8\u0006\t"}, d2 = {"ACTION_PROGRESS_FAILED", "", "ACTION_PROGRESS_ONGOING", "ACTION_PROGRESS_SUCCESS", "ATTACHMENT_PROGRESS_DELETED", "ATTACHMENT_PROGRESS_DONE", "ATTACHMENT_PROGRESS_FAILED", "ATTACHMENT_PROGRESS_INDETERMINATE", "ATTACHMENT_PROGRESS_NONE", "app_fdroidDebug"})
+public final class DatabaseKt {
+    public static final int ATTACHMENT_PROGRESS_NONE = -1;
+    public static final int ATTACHMENT_PROGRESS_INDETERMINATE = -2;
+    public static final int ATTACHMENT_PROGRESS_FAILED = -3;
+    public static final int ATTACHMENT_PROGRESS_DELETED = -4;
+    public static final int ATTACHMENT_PROGRESS_DONE = 100;
+    public static final int ACTION_PROGRESS_ONGOING = 1;
+    public static final int ACTION_PROGRESS_SUCCESS = 2;
+    public static final int ACTION_PROGRESS_FAILED = 3;
+}
